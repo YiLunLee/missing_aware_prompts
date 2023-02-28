@@ -1,0 +1,16 @@
+.column {
+    float: left;
+    width: 33%;
+    padding: 15px;
+  }
+  
+  /* Clear floats after image containers */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  figure figcaption {
+      border: 1px blue;
+      text-align: center;
+  }

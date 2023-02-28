@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!-- modified from url=https://fuenwang.ml/project/led2net/ -->
+<!-- <html lang="en" class="gr__ee_nycu_edu"> -->
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="ginawu">
+<script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous">
+</script>
+
+<title>Multimodal Prompting with Missing Modalities for Visual Recognition</title>
+
+<!-- CSS includes -->
+<link href="static/asset/bootstrap.min.css" rel="stylesheet">
+<link href="static/asset/css" rel="stylesheet" type="text/css">
+<link href="static/asset/mystyle.css" rel="stylesheet">
+<link href="static/asset/fig_style.css" rel="stylesheet">
+
+<style type="text/css">
+.navbar-center {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+</style>
+
+
+</head>
+
+<!-- <body data-gr-c-s-loaded="true"> -->
+<body>
+
+<!-- <div class="topnav" id="myTopnav">
+  <a href="#header">Home</a>
+  <a href="#abstract">Abstract</a>
+  <a href="#demo">Demo</a>
+  <a href="#paper">Paper</a>
+  <a href="#code">Code</a>
+  <a href="javascript:void(0);" class="icon" onclick="toggleTopNav()">&#9776;</a>
+</div> -->
+
+
+<div id="header" class="container-fluid">
+    <div class="row">
+        <h1>Multimodal Prompting with Missing Modalities for Visual Recognition</h1>
+        <div class="authors">
+            <a href="https://yilunlee.github.io/" target="_blank">Yi-Lun Lee</a>, 
+            <a href="https://sites.google.com/site/yihsuantsai/" target="_blank">Yi-Hsuan Tsai</a>, 
+            <a href="https://walonchiu.github.io/" target="_blank">Wei-Chen Chiu</a>, 
+            <a href="https://chl260.github.io/" target="_blank">Chen-Yu Lee</a>
+            <!-- <center>(* denotes equal contribution)</center> -->
+
+            <p style="text-align:center;">
+                National Yang Ming Chiao Tung University, Taiwan
+                <br> 
+                Google, USA
+                <!-- <a href="http://nthu-en.web.nthu.edu.tw/bin/home.php" target="_blank"><img src="./ACCV2018/nthu_logo.png" height="150"></a> -->
+                <!-- &emsp; -->
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="links">
+    <center>
+		<div class="mx-auto">
+			<ul class="nav navbar-center">
+				<li class="nav-item text-center" style="display: inline-block;">
+					<a href="https://github.com/YiLunLee/Missing_aware_prompts" class="nav-link">
+						<svg style="width:50px;height:50px;" viewBox="0 0 16 16">
+							<path fill="currentColor" d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
+  							<path fill="currentColor" d="M4.5 12.5A.5.5 0 0 1 5 12h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 10h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm1.639-3.708 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V8.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V8s1.54-1.274 1.639-1.208zM6.25 6a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5z"/>
+						</svg><br>
+						Paper
+					</a>
+				<li class="nav-item text-center" style="display: inline-block;">
+					<a href="https://github.com/YiLunLee/Missing_aware_prompts" class="nav-link">
+						<svg style="width:50px;height:50px" viewBox="0 0 16 16">
+							<path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+						</svg><br>
+						Code
+					</a>
+			</ul>
+		</div>
+    </center>
+</div>
+
+<div class="container" id="abstract">
+    <!-- <img src="static/fig/teaser.pdf" height="50%" width="100%"> -->
+
+
+    <h2>Abstract</h2>
+    <p style="text-align: justify;">
+    In this paper, we tackle two challenges in multimodal learning for visual recognition: 1) when missing-modality occurs either during training or testing in real-world situations; and 2) when the computation resources are not available to finetune on heavy transformer models. To this end, we propose to utilize prompt learning and mitigate the above two challenges together. Specifically, our modality-missing-aware prompts can be plugged into multimodal transformers to handle general missing-modality cases, while only requiring less than 1% learnable parameters compared to training the entire model. We further explore the effect of different prompt configurations and analyze the robustness to missing modality. Extensive experiments are conducted to show the effectiveness of our prompt learning framework that improves the performance under various missing-modality cases, while alleviating the requirement of heavy model re-training.
+    </p>
+
+<!--     <div class="row align-items-start">
+        <div class="col">
+            <img src="static/gif/generation.gif" width="100%">
+        </div>
+        <div class="col">
+            <img src="static/gif/co-segmentation.gif" width="100%">
+        </div>  
+    </div> -->
+</div>
+
+<!--
+<div class="container" id="video">
+    <h2>Demo Video</h2>
+</div>
+-->
+<div class="container" id="experiment">
+    <h2>Method</h2>
+    <img src="static/fig/model.pdf" width="100%">
+</div>
+    
+<div class="container" id="experiment">
+    <h2>Experiments</h2>
+
+<!--     <h3>Reconstruction</h3>
+    <img src="static/fig/reconstruction.jpeg" width="100%">
+    <center><p>Examples of reconstruction by our RPG. For each pair, the shape on the left is the input while the output is on the right.</p></center>
+
+    <h3>Generation</h3>
+    <img src="static/fig/sample.jpg" width="100%">
+    <center><p>Qualitative examples of the point clouds generated by our proposed recursive point cloud generator (RPG).</p></center>
+    
+
+    <h3>Interpolation</h3>
+    <img src="static/fig/interpolation.jpg" width="100%">
+    <center><p>Examples for our interpolation between different shapes: (a) Rows sequentially show the point clouds generated on all the expansion stages while interpolating between the chairs on the bottom-left and bottom-right corners; (b) Each row shows interpolation between two 3D shapes of the same object category; (c) Each row shows interpolation between two shapes from different categories.</p></center>
+
+    <h3>Co-segmentation</h3>
+    <img src="static/fig/co-segmentation.jpg" width="100%">
+    <center><p>Visualization of co-segmentation results among object instances from Car, Chair and Airplane categories in ShapeNet. For each object category, the rows sequentially highlight different common parts with green color shared across the instances.</p></center> -->
+
+
+</div>
+    
+
+
+<!-- <div class="container" id="paper">
+    <h3>Citation</h3>
+    <div class="alert alert-secondary" role="alert">
+    <pre>@misc{ko2021rpg,
+      title={RPG: Learning Recursive Point Cloud Generation}, 
+      author={Wei-Jan Ko and Hui-Yu Huang and Yu-Liang Kuo and Chen-Yi Chiu and Li-Heng Wang and Wei-Chen Chiu},
+      year={2021},
+      eprint={2105.14322},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}}</pre>
+    </div>
+</div> -->
+
+<br>
+
+<!-- Javascript includes -->
+<!--
+<script src="static/asset/jquery-1.8.3.min.js"></script>
+<script src="static/asset/mystyle.js"></script>
+<script src="static/asset/bootstrap.min.js"></script>
+<script async="" src="static/asset/analytics.js"></script><script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-98479202-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+<div id="point-jawn" style="z-index: 2147483647;"></div></body></html>
+-->
+
