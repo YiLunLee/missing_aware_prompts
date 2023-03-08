@@ -22,6 +22,14 @@ To be released soon...
 ## Citation
 If you find this work useful for your research, please cite:
 
+```Bibtex
+@inproceedings{lee2023cvpr,
+ title = {Multimodal Prompting with Missing Modalities for Visual Recognition},
+ author = {Yi-Lun Lee and Yi-Hsuan Tsai and Wei-Chen Chiu and Chen-Yu Lee},
+ booktitle = {IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+ year = {2023}
+}
+```
 
 ## Acknowledgements
-This repository is developed based on [ViLT](https://github.com/dandelin/ViLT.git).
+This code is based on [ViLT](https://github.com/dandelin/ViLT.git).
