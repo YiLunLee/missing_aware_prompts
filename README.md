@@ -13,8 +13,11 @@ In this paper, we tackle two challenges in multimodal learning for visual recogn
 ### Enviroment
 #### Prerequistities
 Python = 3.7.13
+
 Pytorch = 1.10.0
+
 CUDA = 11.3
+
 #### Other requirements
 ```
 pip install -r requirements.txt
