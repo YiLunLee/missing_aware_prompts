@@ -1,0 +1,7 @@
+1. config.py - config and loss_name
+2. module/vilt_*_module
+3. module/objectives
+4. module/vilt_utils
+5. datasets/inits and datasets/{}_datasets
+6. datamodule/inits and datamodule/{}_datamodules
+7. gadgets/my_metric if need new metric
