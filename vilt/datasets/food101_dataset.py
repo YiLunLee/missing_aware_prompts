@@ -1,9 +1,9 @@
 from .base_dataset import BaseDataset
 import torch
-import random
+import random, os
 
 class FOOD101Dataset(BaseDataset):
-    def __init__(self, *args, split="", missing_ratio={}, missing_type={},  missing_table_root='', simulate_missing=False, **kwargs):
+    def __init__(self, *args, split="", missing_info={}, **kwargs):
         assert split in ["train", "val", "test"]
         self.split = split
 
@@ -35,7 +35,7 @@ class FOOD101Dataset(BaseDataset):
         # use image data to formulate missing table
         total_num = len(self.table['image'])
         
-        if os.path.exists(missing_table_root):
+        if os.path.exists(missing_table_path):
             missing_table = torch.load(missing_table_path)
             if len(missing_table) != total_num:
                 print('missing table mismatched!')
@@ -60,16 +60,11 @@ class FOOD101Dataset(BaseDataset):
         self.missing_table = missing_table
 
        
-
     def __getitem__(self, index):
         # index -> pair data index
         # image_index -> image index in table
         # question_index -> plot index in texts of the given image
         image_index, question_index = self.index_mapper[index]
-        
-#         image_id = self.table['image_id'][image_index].as_py()
-#         labeled_flag = image_id in self.labeled_data_list
-        labeled_flag = False #self.missing_table[image_index].item() == 0
         
         # For the case of training with modality-complete data
         # Simulate missing modality with random assign the missing type of samples
@@ -83,8 +78,8 @@ class FOOD101Dataset(BaseDataset):
         if self.missing_table[image_index] == 2 or simulate_missing_type == 2:
             for idx in range(len(image_tensor)):
                 image_tensor[idx] = torch.ones(image_tensor[idx].size()).float()
-
-        #missing text, dummy text is ''            
+            
+        #missing text, dummy text is ''
         if self.missing_table[image_index] == 1 or simulate_missing_type == 1:
             text = ''
             encoding = self.tokenizer(
@@ -100,7 +95,7 @@ class FOOD101Dataset(BaseDataset):
 
         
         labels = self.table["label"][image_index].as_py()
-
+        
         return {
             "image": image_tensor,
             "text": text,

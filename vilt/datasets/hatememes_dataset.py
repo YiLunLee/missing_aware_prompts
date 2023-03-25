@@ -1,9 +1,9 @@
 from .base_dataset import BaseDataset
 import torch
-import random
+import random, os
 
 class HateMemesDataset(BaseDataset):
-    def __init__(self, *args, split="", missing_ratio={}, missing_type={},  missing_table_root='', simulate_missing=False, **kwargs):
+    def __init__(self, *args, split="", missing_info={}, **kwargs):
         assert split in ["train", "val", "test"]
         self.split = split
 
@@ -35,7 +35,7 @@ class HateMemesDataset(BaseDataset):
         # use image data to formulate missing table
         total_num = len(self.table['image'])
         
-        if os.path.exists(missing_table_root):
+        if os.path.exists(missing_table_path):
             missing_table = torch.load(missing_table_path)
             if len(missing_table) != total_num:
                 print('missing table mismatched!')
@@ -67,18 +67,18 @@ class HateMemesDataset(BaseDataset):
         
         # For the case of training with modality-complete data
         # Simulate missing modality with random assign the missing type of samples
-        simulate_missing = 0
-        if self.split == 'train' and self.simulate and self.missing_table[image_index] == 0:
-            simulate_missing = random.choice([0,1,2])
-
+        simulate_missing_type = 0
+        if self.split == 'train' and self.simulate_missing and self.missing_table[image_index] == 0:
+            simulate_missing_type = random.choice([0,1,2])
+            
         image_tensor = self.get_image(index)["image"]
         
         # missing image, dummy image is all-one image
         if self.missing_table[image_index] == 2 or simulate_missing_type == 2:
             for idx in range(len(image_tensor)):
                 image_tensor[idx] = torch.ones(image_tensor[idx].size()).float()
-
-        #missing text, dummy text is ''        
+            
+        #missing text, dummy text is ''
         if self.missing_table[image_index] == 1 or simulate_missing_type == 1:
             text = ''
             encoding = self.tokenizer(
@@ -99,5 +99,5 @@ class HateMemesDataset(BaseDataset):
             "image": image_tensor,
             "text": text,
             "label": labels,
-            "missing_type": self.missing_table[image_index].item()+aug_flag,
+            "missing_type": self.missing_table[image_index].item()+simulate_missing_type,
         }
