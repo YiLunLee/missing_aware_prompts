@@ -11,7 +11,7 @@ In this paper, we tackle two challenges in multimodal learning for visual recogn
 
 ## Usage
 ### Enviroment
-#### Prerequistities
+#### Prerequisites
 Python = 3.7.13
 
 Pytorch = 1.10.0
