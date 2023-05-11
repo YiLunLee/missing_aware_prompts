@@ -48,6 +48,7 @@ Please organize the datasets as follows, otherwise you may need to revise the `w
 
 ##  Hateful Memes
 [Hateful Memes](https://ai.facebook.com/blog/hateful-memes-challenge-and-data-set/)
+
 **Update:** The datasets we used are from [(Kaggle)](https://www.kaggle.com/datasets/parthplc/facebook-hateful-meme-dataset), however, the test.jsonl here does not contain the label information. To make the label available for the evaluation, we download the test_seen.jsonl from [(Kaggle2)](https://www.kaggle.com/datasets/williamberrios/hateful-memes), which has the same test set as the previous one with the label information. You can directly download the test_seen.jsonl file here and use it (of course you should rename it as test.jsonl or revise the write_*.py file).
 
 
