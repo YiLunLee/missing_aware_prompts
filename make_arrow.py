@@ -12,6 +12,6 @@ elif args.dataset.lower() == 'food101':
     from vilt.utils.write_food101 import make_arrow
     make_arrow(f'{args.root}/Food101', './datasets/Food101')
     
-elif args.dataset.lower() == 'hateful_memes':
+elif args.dataset.lower() == 'hatefull_memes':
     from vilt.utils.write_hatememes import make_arrow
     make_arrow(f'{args.root}/Hatefull_Memes', './datasets/Hatefull_Memes')
