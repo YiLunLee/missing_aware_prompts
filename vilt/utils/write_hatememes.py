@@ -23,7 +23,7 @@ def make_arrow(root, dataset_root, single_plot=False):
                     
                 text = [data['text']]
                 label = data['label']
-                text_aug = text_aug_dir['{}.png'.format(data['id'])]
+                #text_aug = text_aug_dir['{}.png'.format(data['id'])]
 
                 data = (binary, text, label, split)
                 data_list.append(data)                
