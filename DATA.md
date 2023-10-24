@@ -53,10 +53,11 @@ Please organize the datasets as follows, otherwise you may need to revise the `w
 
 
     root
-    ├── img           
-    │   ├── xxxxx.png 
-    │   ├── xxxxx.png   
-    │   └── ...        
-    ├── train.jsonl          
-    ├── dev.jsonl           
-    └── test.jsonl 
+    └── data
+        ├── img           
+        │   ├── xxxxx.png 
+        │   ├── xxxxx.png   
+        │   └── ...        
+        ├── train.jsonl          
+        ├── dev.jsonl           
+        └── test.jsonl 
